@@ -1,0 +1,19 @@
+.attachments__photos {
+  $self: &;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 -7.5px;
+
+  img {
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    padding: 5px 7.5px;
+    border-radius: 15px;
+  }
+}
+
+.attachments__photos-isMe {
+  justify-content: flex-end;
+}

@@ -5,52 +5,55 @@ import cn from 'classnames';
 import './Messga.scss';
 import checkIcon from './../../assets/img/readed.png';
 import nocheckIcon from './../../assets/img/noreaded.png';
+import {UserTypingIndicator, Attachments} from "../index";
 
-const Message = ({ava, text, date, user, isMe, isReaded}) => {
+const Message = ({ava, text, date, user, isMe, isRead, isTyping, attachments}) => {
+
     return (
         <div className={cn(
             "message",
-            {'message--isme': isMe}
+            {
+                'message--isme': isMe,
+                'message__isTyping': isTyping
+            }
         )}>
-            {/*<div className="message__avatar">
-                <img className="ava" src={ava} alt={`Avatar ${user.fullname}`}/>
-            </div>
-            <div className="message__info">
-                <div className="message__content">
-                    <div className="message__bubble">
-                        <p className="message__text">{text}</p>
-                    </div>
-                    <span className="message__date">Вчера, в 12:31<Moment locale="ru" fromNow date={date}/></span>
-                </div>
-                </div>*/}
             <div className="message__content">
                 <div className="message__avatar">
                     <img className="ava" src={ava} alt={`Avatar ${user.fullname}`}/>
                 </div>
                 <div className="message__info">
-                    <div className="message__bubble">
-                        <p className="message__text">{text}</p>
+                    <div className={cn("message__bubble",
+                        {
+                            "message__bubble-isTyping": isTyping,
+                            "message__bubble__with-attachments": !!(attachments && attachments[0])
+                        }
+                    )}>
+                        <div className="display-none">
+                            {!isTyping && <p className="message__text">{text}</p>}
+                            {isTyping && <UserTypingIndicator isMe={isMe}/>}
+                        </div>
+                        {!!(attachments && attachments[0]) && <Attachments isMe={isMe} attachments={attachments} />}
                     </div>
-                    <span className="message__date">
-                        <Moment  fromNow >
+                    {!isTyping && <span className="message__date">
+                        <Moment fromNow>
                             {new Date(date)}
                         </Moment>
-                    </span>
+                    </span>}
                 </div>
-                {isMe && <img
+                {isMe && !isTyping && <img
                     className="message-icon-readed"
-                    src={!!isReaded ? checkIcon : nocheckIcon}
+                    src={!!isRead ? checkIcon : nocheckIcon}
                     alt="Checked icon"
                 />}
 
             </div>
-            </div>
-            );
-            };
+        </div>
+    );
+};
 
-            Message.defaultProps = {
-            user: {},
+Message.defaultProps = {
+    user: {},
 
-        }
+}
 
-            export default Message;
+export default Message;
