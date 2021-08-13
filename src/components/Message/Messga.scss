@@ -3,9 +3,6 @@
 .message {
   $self: &;
   display: flex;
-  /*
-  max-width: 440px;
-  */
   margin-bottom: 15px;
 
   &__content {
@@ -21,6 +18,23 @@
 
     }
     #{$self}__info {
+
+      #{$self}__bubble__with-attachments {
+        background: none;
+        box-shadow: none;
+        border: none;
+        .display-none {
+          display: none;
+        }
+      }
+
+      #{$self}__bubble-isTyping {
+        background:none;
+        box-shadow: none;
+        margin-bottom: 30px;
+        border: none;
+      }
+
       #{$self}__icon__readed {
         width: 100vh;
       }
@@ -68,6 +82,8 @@
       flex-direction: row-reverse;
 
       position: relative;
+
+
 
       .message-icon-readed {
         width: 15px;
