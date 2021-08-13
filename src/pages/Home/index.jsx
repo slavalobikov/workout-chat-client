@@ -14,6 +14,7 @@ const Home = () => {
                 text='Але, это я'
                 date='Thu Aug 12 2021 16:22:38 GMT+0300'
                 isMe={false}
+                isReaded={true}
             />
 
             <Message
@@ -21,7 +22,7 @@ const Home = () => {
                 text='Але, это я'
                 date='Thu Aug 12 2021 16:22:38 GMT+0300'
                 isMe={true}
-                isReaded={true}
+                isReaded={false}
             />
         </section>
     );

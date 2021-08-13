@@ -3,8 +3,29 @@
 .message {
   $self: &;
   display: flex;
+  /*
   max-width: 440px;
+  */
   margin-bottom: 15px;
+
+  &__content {
+    display: flex;
+    position: relative;
+
+      .message-icon-readed {
+        width: 15px;
+        height: 10px;
+        position: absolute;
+        right: -25px;
+        bottom: 31px;
+
+    }
+    #{$self}__info {
+      #{$self}__icon__readed {
+        width: 100vh;
+      }
+    }
+  }
 
   &__avatar {
     display: flex;
@@ -21,6 +42,7 @@
 
   &__bubble {
     background: $blue;
+    max-width: 440px;
     box-shadow: 0px 5px 5px rgba(54, 116, 255, 0.19673);
     border-radius: 12px 12px 12px 0px;
     padding: 15px;
@@ -44,14 +66,27 @@
     #{$self}__content {
       margin-bottom: 15px;
       flex-direction: row-reverse;
+
+      position: relative;
+
+      .message-icon-readed {
+        width: 15px;
+        height: 10px;
+        position: absolute;
+        left: -25px !important;
+        bottom: 31px !important;
+
+      }
+
     }
 
     #{$self}__avatar {
       margin-bottom: 15px;
-      flex-direction: row-reverse;
-      img{
+      flex-direction: column-reverse;
+      img {
         margin-right: 0;
         margin-left: 13px;
+        margin-bottom: 8px;
       }
     }
 
