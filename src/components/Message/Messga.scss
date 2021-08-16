@@ -5,18 +5,60 @@
   display: flex;
   margin-bottom: 15px;
 
+  &--is-audio {
+    audio {
+      display: none;
+    }
+    #{$self}__content {
+      #{$self}__info {
+
+        #{$self}__bubble__is-audio {
+          width: 260px;
+          position: relative;
+          overflow: hidden;
+          background: $blue;
+
+          #{$self}__audio {
+            .message__audio-progress {
+              background: #418fff;
+              position: absolute;
+              left:0;
+              top:0;
+              height: 100%;
+              transition: width 0.3s ease;
+            }
+            &-info {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              position: relative;
+              button {
+                background: #0F3997;
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                border: none;
+                font-size: 16px;
+                cursor: pointer;
+              }
+
+              .message__audio-duration {
+                color: #fff;
+                font-weight: 500;
+                opacity: 0.5;
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   &__content {
     display: flex;
     position: relative;
 
-/*      .message-icon-readed {
-        width: 15px;
-        height: 10px;
-        position: absolute;
-        right: -25px;
-        bottom: 31px;
-
-    }*/
     #{$self}__info {
 
       #{$self}__bubble__with-attachments {
@@ -122,3 +164,4 @@
     }
   }
 }
+
