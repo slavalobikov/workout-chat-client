@@ -1,0 +1,39 @@
+.icon {
+
+  .dialogs-icon {
+    width: 15px;
+    height: 10px;
+  }
+
+  .message-icon-readed {
+    width: 15px;
+    height: 10px;
+    position: absolute;
+    right: -25px;
+    bottom: 31px;
+  }
+
+  .count {
+    background: #f46b6b;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    /*
+    width: 18px;
+    */
+    width: 100px;
+    max-width: 22px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+  }
+
+
+}
+
+
+
+
+
