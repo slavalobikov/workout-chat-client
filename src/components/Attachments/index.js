@@ -13,6 +13,7 @@ const Attachments = ({attachments, isMe}) => {
         <div className={cn("attachments__photos",
             {
                 "attachments__photos-isMe": isMe,
+                "attachments__one__photos": attachments.length === 1,
             }
         )}>
             {

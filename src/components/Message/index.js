@@ -1,11 +1,7 @@
-import Moment from 'react-moment';
-import 'moment/locale/ru';
 import cn from 'classnames';
 
 import './Messga.scss';
-import checkIcon from './../../assets/img/readed.png';
-import nocheckIcon from './../../assets/img/noreaded.png';
-import {UserTypingIndicator, Attachments} from "../index";
+import {UserTypingIndicator, Attachments, Time, MessageStatus} from "../index";
 
 const Message = ({ava, text, date, user, isMe, isRead, isTyping, attachments}) => {
 
@@ -35,16 +31,20 @@ const Message = ({ava, text, date, user, isMe, isRead, isTyping, attachments}) =
                         {!!(attachments && attachments[0]) && <Attachments isMe={isMe} attachments={attachments} />}
                     </div>
                     {!isTyping && <span className="message__date">
-                        <Moment fromNow>
-                            {new Date(date)}
-                        </Moment>
+                        <Time date={date} />
                     </span>}
                 </div>
-                {isMe && !isTyping && <img
+                {!isTyping && <MessageStatus
+                    isMe={isMe}
+                    isRead={isRead}
+                    numberMissingMessgae={null}
+                    isDialogs={false}
+                />}
+{/*                {isMe && !isTyping && <img
                     className="message-icon-readed"
                     src={!!isRead ? checkIcon : nocheckIcon}
                     alt="Checked icon"
-                />}
+                />}*/}
 
             </div>
         </div>
