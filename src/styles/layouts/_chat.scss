@@ -1,0 +1,117 @@
+.chat {
+  background-color: #fff;
+  width: 1140px;
+  margin: 0 auto;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.04204);
+  display: flex;
+
+  &__sidebar {
+    width: 320px;
+    border-right: 1px solid #f7f7f7;
+
+    &-header {
+
+      padding: 21px;
+      display: flex;
+      justify-content: space-between;
+      height: 58px;
+      border-bottom: 1px solid #f7f7f7;
+      margin-bottom: 20px;
+
+      & > div {
+        display: flex;
+        span:first-child {
+          margin-right: 9px;
+        }
+      }
+    }
+
+    /*
+    &-search {
+      padding:0 20px 20px 20px;
+
+      input {
+        background-color: #F7F8F9;
+      }
+      button {
+        background-color: #F7F8F9;
+
+      }
+    }
+    */
+
+    &-dialogs {
+      height: 100%;
+      .dialogs {
+        height: calc(100% - 136px);
+        overflow: auto;
+        &__item {
+          padding: 10px 20px;
+          margin-bottom: 0;
+          cursor: pointer;
+
+          &.active,
+          &:hover {
+            background-color: #f3f7ff;
+          }
+        }
+      }
+    }
+
+  }
+
+  &__dialog {
+    flex: 1;
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      border-bottom: 1px solid #f7f7f7;
+
+      &-center {
+        text-align: center;
+        /*.status {
+          color:#D4D4D4;
+          position: relative;
+          display: inline-block;
+          &--online {
+            &::before {
+              background-color: #00C980;
+            }
+          }
+
+          &::before {
+            display: block;
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #D3D3D3;
+            position: absolute;
+            top:5px;
+            left:-10px;
+          }
+
+
+        }*/
+      }
+
+      &-username {
+        font-weight: 500;
+        display: block;
+        margin-bottom: 5px;
+
+      }
+    }
+
+    &-messages {
+      padding: 20px;
+      overflow: auto;
+      height: calc(100% - 58px - 80px);
+    }
+  }
+
+
+}
